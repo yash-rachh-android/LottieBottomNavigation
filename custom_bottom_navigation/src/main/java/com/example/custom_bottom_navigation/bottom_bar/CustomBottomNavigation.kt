@@ -63,6 +63,10 @@ class CustomBottomNavigation @JvmOverloads constructor(
         }
     }
 
+    fun selectLottie(id:String){
+        setSelector(id)
+    }
+
     private fun setSelector(id: String) {
         resetAllViewSelection()
         val index = lottieViews.indexOfFirst {
