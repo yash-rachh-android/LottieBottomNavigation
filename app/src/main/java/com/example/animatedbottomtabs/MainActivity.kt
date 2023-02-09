@@ -40,5 +40,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        binding.clickCheck.setOnClickListener {
+            binding.bottomNavigation.selectLottieWithClick("HOME2")
+        }
     }
 }
