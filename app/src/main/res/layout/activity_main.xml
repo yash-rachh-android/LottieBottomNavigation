@@ -19,6 +19,12 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perform Tab 3 Click"
+            android:id="@+id/clickCheck"/>
+
         <com.example.custom_bottom_navigation.bottom_bar.CustomBottomNavigation
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"

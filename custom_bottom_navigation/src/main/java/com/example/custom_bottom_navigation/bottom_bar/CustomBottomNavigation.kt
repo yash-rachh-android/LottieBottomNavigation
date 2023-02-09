@@ -63,8 +63,19 @@ class CustomBottomNavigation @JvmOverloads constructor(
         }
     }
 
-    fun selectLottie(id:String){
+    fun selectLottieWithoutClick(id:String){
         setSelector(id)
+    }
+
+    fun selectLottieWithClick(id:String){
+        performLottieClick(id)
+    }
+
+    private fun performLottieClick(id: String) {
+        val index = lottieViews.indexOfFirst {
+            it.id == id
+        }
+        lottieViews[index].parent?.performClick()
     }
 
     private fun setSelector(id: String) {
