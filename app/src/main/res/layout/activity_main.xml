@@ -25,7 +25,7 @@
             android:text="Perform Tab 3 Click"
             android:id="@+id/clickCheck"/>
 
-        <com.example.custom_bottom_navigation.bottom_bar.CustomBottomNavigation
+        <com.example.custom_bottom_navigation.bottom_bar.LottieBottomNavigation
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

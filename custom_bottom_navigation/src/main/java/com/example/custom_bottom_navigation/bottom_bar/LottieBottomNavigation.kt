@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.Color
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.example.custom_bottom_navigation.databinding.CustomBottombarBinding
 
 
-class CustomBottomNavigation @JvmOverloads constructor(
+class LottieBottomNavigation @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
@@ -33,33 +34,36 @@ class CustomBottomNavigation @JvmOverloads constructor(
         lottieHeight: Int = 0,
         title: String = "",
     ) {
-        val tabLayout = RelativeLayout(context)
+        val tabLayout = LinearLayout(context)
         val params = LayoutParams(0, android.view.ViewGroup.LayoutParams.MATCH_PARENT, 1f)
+        tabLayout.orientation = VERTICAL
         lottieAnimationView.id = View.generateViewId()
         if (lottieWidth != 0 || lottieHeight != 0) {
-            val dynamicParams = RelativeLayout.LayoutParams(lottieWidth.px, lottieHeight.px)
-            dynamicParams.addRule(RelativeLayout.CENTER_IN_PARENT)
+            val dynamicParams = LinearLayout.LayoutParams(lottieWidth.px, lottieHeight.px)
+            tabLayout.gravity = Gravity.CENTER
+//            dynamicParams.addRule(RelativeLayout.CENTER_IN_PARENT)
             tabLayout.addView(lottieAnimationView, dynamicParams)
-            binding.mainLayout.layoutParams = LayoutParams(
+           /* binding.mainLayout.layoutParams = LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
-            )
+            )*/
         } else {
-            val lottieParams = RelativeLayout.LayoutParams(
+            val lottieParams = LinearLayout.LayoutParams(
                 50.px,
                 50.px
             )
-            lottieParams.addRule(RelativeLayout.CENTER_IN_PARENT)
+            tabLayout.gravity = Gravity.CENTER
+//            lottieParams.addRule(RelativeLayout.CENTER_IN_PARENT)
             tabLayout.addView(lottieAnimationView, lottieParams)
             /*binding.mainLayout.layoutParams = LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, 50.px)*/
         }
         val titleView = TextView(context)
         if (title.isNotEmpty()) {
-            val titleParams = RelativeLayout.LayoutParams(
+            val titleParams = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
             )
-            titleParams.addRule(RelativeLayout.BELOW, lottieAnimationView.id)
-            titleParams.addRule(RelativeLayout.CENTER_HORIZONTAL)
+            /*titleParams.addRule(RelativeLayout.BELOW, lottieAnimationView.id)
+            titleParams.addRule(RelativeLayout.CENTER_HORIZONTAL)*/
             titleParams.setMargins(0.px, 0.px, 0.px, 5.px)
             titleView.text = title
             tabLayout.addView(titleView, titleParams)
@@ -67,7 +71,7 @@ class CustomBottomNavigation @JvmOverloads constructor(
         binding.mainLayout.addView(tabLayout, params)
         lottieViews.add(
             LottieModel(
-                parent = tabLayout,
+                lparent = tabLayout,
                 lottie = lottieAnimationView,
                 id = id,
                 titleView = if (title.isNotEmpty()) titleView else null
