@@ -89,6 +89,10 @@ class LottieBottomNavigation @JvmOverloads constructor(
                 listener(obj.id)
                 setSelector(obj.id)
             }
+            obj.lparent?.setOnClickListener {
+                listener(obj.id)
+                setSelector(obj.id)
+            }
         }
     }
 
