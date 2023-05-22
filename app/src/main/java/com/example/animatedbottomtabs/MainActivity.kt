@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
         val lottie = LottieAnimationView(this)
         lottie.setAnimation(R.raw.tab_1)
         val lottie1 = LottieAnimationView(this)
-        lottie1.setAnimation(R.raw.home)
+        lottie1.setAnimation(R.raw.tab_1)
         val lottie2 = LottieAnimationView(this)
-        lottie2.setAnimation(R.raw.home)
-        binding.bottomNavigation.addTab(lottie,"HOME")
-        binding.bottomNavigation.addTab(lottie1,"HOME1")
-        binding.bottomNavigation.addTab(lottie2,"HOME2")
+        lottie2.setAnimation(R.raw.tab_1)
+        binding.bottomNavigation.addTab(lottie,"HOME", title = "Home")
+        binding.bottomNavigation.addTab(lottie1,"HOME1",title = "Home 2")
+        binding.bottomNavigation.addTab(lottie2,"HOME2",title = "Home 3")
         binding.bottomNavigation.setOnItemClickListener { menu ->
             when(menu){
                 "HOME" -> {
@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        binding.bottomNavigation.setSelectedColor("#FF0000")
+        binding.bottomNavigation.setSelectedColor("#87B155")
+        binding.bottomNavigation.setUnSelectedColor("#9595A1")
         binding.clickCheck.setOnClickListener {
             binding.bottomNavigation.selectLottieWithClick("HOME2")
         }
