@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         val lottie = LottieAnimationView(this)
-        lottie.setAnimation(R.raw.home)
+        lottie.setAnimation(R.raw.tab_1)
         val lottie1 = LottieAnimationView(this)
         lottie1.setAnimation(R.raw.home)
         val lottie2 = LottieAnimationView(this)
@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        binding.bottomNavigation.setSelectedColor("#FF0000")
         binding.clickCheck.setOnClickListener {
             binding.bottomNavigation.selectLottieWithClick("HOME2")
         }
