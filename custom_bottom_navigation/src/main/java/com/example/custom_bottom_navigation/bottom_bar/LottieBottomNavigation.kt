@@ -117,6 +117,7 @@ class LottieBottomNavigation @JvmOverloads constructor(
             it.id == id
         }
         lottieViews[index].parent?.performClick()
+        lottieViews[index].lparent?.performClick()
     }
 
     private fun setSelector(id: String) {
